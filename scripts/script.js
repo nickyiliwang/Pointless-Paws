@@ -1,3 +1,5 @@
+// credit: https://codepen.io/RAN3000/pen/ogxwQK for basic logic
+
 const pawApp = {
   endOfAnimations:
     "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",
