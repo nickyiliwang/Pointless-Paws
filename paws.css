@@ -1,0 +1,18 @@
+body {
+  overflow: hidden;
+}
+
+/* this is the paws */
+.paws {
+  z-index: 2;
+  position: absolute;
+  right: 25vw;
+  /* this is the transition for paws */
+  transform: translate(0, 1000px);
+  /* using cubic-bezier */
+  transition: all 1s linear;
+}
+
+.paws.active {
+  transform: none;
+}
