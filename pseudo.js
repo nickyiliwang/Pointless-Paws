@@ -18,3 +18,7 @@
 // bugs:
 // clicking too fast would result in some kind of animation limbo, where the button is already reverted 
 // maybe restrict actions during animations
+
+// stretch goals:
+// more scenario with more assets to play with
+// 
