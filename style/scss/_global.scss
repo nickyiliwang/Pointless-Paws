@@ -1,0 +1,24 @@
+// google fonts
+// font-family: 'Josefin Sans', sans-serif;
+// 400 regular, 600 semi, 700 bold
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700&display=swap");
+
+// font size
+html,
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+}
+
+// wrapper
+.wrapper {
+  max-width: 1080px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+// image
+img {
+  width: 100%;
+  display: block;
+}

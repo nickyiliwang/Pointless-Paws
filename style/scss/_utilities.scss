@@ -1,0 +1,19 @@
+// variables
+
+// font colours
+$primaryYellow: #ffd300;
+$primaryBlack: #0F0F0F;
+$primaryWhite: #ffffff;
+
+// background colors
+$primaryBackgroundBlack: #171B0E;
+$primaryBackgroundPine: #2b331b;
+$primaryBackgroundGreen: #364419;
+
+// mixins
+
+// font sizes turn into rem values
+@mixin fontSize($sizeValue) {
+  font-size: $sizeValue * 1px;
+  font-size: ($sizeValue/10) * 1rem / 2;
+}

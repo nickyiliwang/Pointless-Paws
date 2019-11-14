@@ -1,4 +1,4 @@
-body {
+header {
   overflow: hidden;
 }
 
@@ -6,13 +6,14 @@ body {
 .paws {
   z-index: 2;
   position: absolute;
-  right: 25vw;
+  right: 20vw;
   /* this is the transition for paws */
-  transform: translate(0, 1000px);
-  /* using cubic-bezier */
+  transform: translate(0, 50vw);
+  /* Adding transition animation */
   transition: all 1s linear;
 }
 
 .paws.active {
+  /* making the transform none will revert the  */
   transform: none;
 }

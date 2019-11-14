@@ -13,12 +13,3 @@
 // once the paws transition ends, we will use removeClass to remove the class of 'active' from the 
 
 // finally we initiate the init function upon document ready function.
-
-
-// bugs:
-// clicking too fast would result in some kind of animation limbo, where the button is already reverted 
-// maybe restrict actions during animations
-
-// stretch goals:
-// more scenario with more assets to play with
-// 
