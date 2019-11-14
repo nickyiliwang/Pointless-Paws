@@ -1,13 +1,13 @@
 /* this is the paws */
 .paws {
   z-index: 2;
+  // positions before transition
   position: absolute;
   right: 20vw;
   bottom: -150vw;
-  /* this is the transition for paws */
+  /* transition animation */
   transform: none;
-  /* Adding transition animation */
-  // transition: all 1s linear;
+  transition: none;
 }
 
 .paws.active {

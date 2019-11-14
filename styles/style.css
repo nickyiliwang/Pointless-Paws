@@ -353,10 +353,11 @@ input {
   position: absolute;
   right: 20vw;
   bottom: -150vw;
-  /* this is the transition for paws */
+  /* transition animation */
   -webkit-transform: none;
           transform: none;
-  /* Adding transition animation */
+  -webkit-transition: none;
+  transition: none;
 }
 
 .paws.active {
