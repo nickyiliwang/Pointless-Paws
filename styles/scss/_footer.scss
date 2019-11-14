@@ -1,0 +1,15 @@
+footer {
+  margin-top: 50vh;
+
+  .flexContainer {
+    display: flex;
+  }
+
+  .infoContent p {
+    display: none;
+  }
+  .imageContainer {
+    width: 30px;
+    margin-right: 10px;
+  }
+}

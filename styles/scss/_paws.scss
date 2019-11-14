@@ -1,19 +1,16 @@
-header {
-  overflow: hidden;
-}
-
 /* this is the paws */
 .paws {
   z-index: 2;
   position: absolute;
   right: 20vw;
+  bottom: -150vw;
   /* this is the transition for paws */
-  transform: translate(0, 50vw);
+  transform: none;
   /* Adding transition animation */
-  transition: all 1s linear;
+  // transition: all 1s linear;
 }
 
 .paws.active {
-  /* making the transform none will revert the  */
-  transform: none;
+  /* brings up the paw */
+  bottom: -50vw;
 }

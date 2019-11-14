@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700&display=swap");
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden] {
+  display: none;
+}
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+code, kbd, pre, samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+q {
+  quotes: \201C \201D \2018 \2019;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: .35em .625em .75em;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+
+button, input {
+  line-height: normal;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled], input[disabled] {
+  cursor: default;
+}
+
+input[type=checkbox], input[type=radio] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body, figure {
+  margin: 0;
+}
+
+legend, button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.visuallyHidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0);
+  overflow: hidden;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  background: #fdfdf6;
+}
+
+.wrapper {
+  max-width: 1440px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* credit: https://codepen.io/arnoldsandoval/pen/ulkgz for light switch */
+.lightSwitch {
+  display: block;
+  margin: 100px auto;
+  border: 2px solid #d6d6d5;
+  border-left: 1px solid #e8e9ea;
+  border-top: 1px solid #e8e9ea;
+  background: #f2f2f3;
+  border-radius: 13px;
+  height: 238px;
+  width: 126px;
+  position: relative;
+  z-index: 1;
+}
+
+.lightSwitch .switch {
+  position: relative;
+  border: 1px solid #b9bab9;
+  margin: 13px;
+  height: 212px;
+  width: 98px;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0px 0px 1px 0px rgba(255, 255, 255, 0.25);
+          box-shadow: inset 0px 0px 1px 0px rgba(255, 255, 255, 0.25);
+  background-color: #f6f7f8;
+  z-index: 1;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f7f8), color-stop(50%, #f6f7f8), color-stop(50%, #ffffff), to(#ffffff));
+  background-image: linear-gradient(to bottom, #f6f7f8 0%, #f6f7f8 50%, #ffffff 50%, #ffffff 100%);
+}
+
+.lightSwitch .switch:after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+input:checked + .lightSwitch {
+  background: #b5b5b6;
+  border-color: #888;
+}
+
+input:checked + .lightSwitch .switch {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#bfbfbf), color-stop(50%, #bfbfbf), color-stop(50%, #b8b9ba), to(#b8b9ba));
+  background-image: linear-gradient(to bottom, #bfbfbf 0%, #bfbfbf 50%, #b8b9ba 50%, #b8b9ba 100%);
+  border-color: #888;
+}
+
+input:checked + .lightSwitch .switch:after {
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+input:checked + .lightSwitch:after {
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  opacity: 0;
+}
+
+.lightSwitch:after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  /* shadow on the bottom right corner */
+  -webkit-transform: rotate(6deg) scale(0.935) skew(10deg) translate(0px);
+          transform: rotate(6deg) scale(0.935) skew(10deg) translate(0px);
+  right: 5px;
+  bottom: 5px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 0 120px 115px;
+  border-color: transparent transparent rgba(0, 0, 0, 0.15) transparent;
+}
+
+.wall {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  -webkit-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
+}
+
+input:checked ~ .wall {
+  -webkit-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* hiding the input */
+input {
+  opacity: 0;
+  position: absolute;
+}
+
+/* this is the paws */
+.paws {
+  z-index: 2;
+  position: absolute;
+  right: 20vw;
+  bottom: -150vw;
+  /* this is the transition for paws */
+  -webkit-transform: none;
+          transform: none;
+  /* Adding transition animation */
+}
+
+.paws.active {
+  /* brings up the paw */
+  bottom: -50vw;
+}
+
+footer {
+  margin-top: 50vh;
+}
+
+footer .flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .infoContent p {
+  display: none;
+}
+
+footer .imageContainer {
+  width: 30px;
+  margin-right: 10px;
+}

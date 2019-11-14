@@ -8,12 +8,14 @@ html,
 body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
+  background: #fdfdf6;
+  // overflow: hidden;
 }
 
 // wrapper
 .wrapper {
-  max-width: 1080px;
-  width: 90%;
+  max-width: 1440px;
+  width: 95%;
   margin: 0 auto;
 }
 

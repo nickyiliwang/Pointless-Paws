@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <title>Pointless Paws</title>
   </head>
   <body>
     <header>
       <div class="wrapper">
         <!-- paws -->
-        <div class="paws"><img src="./image/paws/paws.png" alt="paws" /></div>
+        <div class="paws"><img class="pawsImage" src="./image/paws/paws.png" alt="paws" /></div>
 
         <input type="checkbox" id="lights" />
         <div class="lightSwitch">
@@ -26,13 +26,29 @@
       <!-- end of wrapper -->
     </header>
 
-
     <footer>
-      <button class="hoverInfo">
+      <div class="wrapper flexContainer">
+          <div class="info imageContainer">
+              <img src="./image/info.png" alt="gameInfo" />
+            </div>
+        <div class="infoContent">
+          <p>
+            Just Turn off the light, but really, its so bright, you hate lights
+            and you want to sleep, just click the switch and turn off the
+            lights.
+          </p>
+          <p>
+            Thanks
+            <a href="https://codepen.io/arnoldsandoval/pen/ulkgz">Arnold</a> for
+            the light switch css
+          </p>
+        </div>
 
-      </button>
-
-
+        <div class="sound imageContainer">
+          <img src="./image/sound.png" alt="soundIcon" />
+        </div>
+      </div>
+      <!-- end of wrapper -->
     </footer>
 
     <script
