@@ -27,15 +27,9 @@ pawApp.randomNumber = max => {
 };
 
 pawApp.changePawsCss = () => {
-  console.log("triggered changePawsCss");
-  $(".paws").css(
-    "transition",
-    pawApp.cubicBezierArr[0],
-    "transform",
-    pawApp.transformArr[0]
-  );
-
-  // $(".wall").css("z-index", "10"); //stop user interaction
+  $(".paws")
+    .css("transition", pawApp.cubicBezierArr[0])
+    .css("transform", pawApp.transformArr[0]);
 };
 
 pawApp.activatePaws = () => {
@@ -43,7 +37,6 @@ pawApp.activatePaws = () => {
     .addClass("active")
     .one(pawApp.endOfAnimations, () => {
       console.log("triggered first activatePaws");
-      // $(".wall").css("z-index", "10"); //stop user interaction
       $("#lights").prop("checked", false);
       $(".paws").removeClass("active");
       $("body").removeClass("lightsOut");
@@ -51,7 +44,6 @@ pawApp.activatePaws = () => {
       // rerun to change css
       $(".paws").one(pawApp.endOfAnimations, () => {
         pawApp.changePawsCss();
-        // $(".wall").css("z-index", "0"); // allows user interaction again
         pawApp.normalEvent();
       });
     });
@@ -62,7 +54,6 @@ pawApp.normalEvent = () => {
   $(".lightSwitch").one("click", () => {
     pawApp.activatePaws();
     $("body").addClass("lightsOut");
-    // $('#lights').prop('disabled', true)
   });
 };
 
