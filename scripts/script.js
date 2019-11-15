@@ -1,64 +1,97 @@
 const pawApp = {};
-// detecting transition end
 pawApp.endOfAnimations =
   "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend";
-// Tracking times user clicked
 pawApp.timesClicked = 0;
-// picture source of paws pictures
-pawApp.pawsSrc = ["./image/paws/Olives.png"];
-// cubic-bezier values for transitions variations
 pawApp.cubicBezierArr = [
-  "all 0.5s linear",
-  "all 2s cubic-bezier(.17,.67,.78,.36)",
-  "all 1s cubic-bezier(0,.98,.7,.7)"
+  "all 0.1s linear" // quick 3
 ];
-// transform
-pawApp.transformArr = [
-  "rotate(90deg) translate(-35vw, 120vw)",
-  "translate(0, 50vw)",
-  "translate(0, 50vw)"
-];
-// positions
-pawApp.positionsArr = [];
-
-// functions
-pawApp.randomNumber = max => {
-  return Math.floor(Math.random() * Math.floor(max));
-};
-
-pawApp.changePawsCss = () => {
-  $(".paws")
-    .css("transition", pawApp.cubicBezierArr[0])
-    .css("transform", pawApp.transformArr[0]);
-};
 
 pawApp.activatePaws = () => {
+  console.log("activatePaws");
   $(".paws")
     .addClass("active")
     .one(pawApp.endOfAnimations, () => {
-      console.log("triggered first activatePaws");
-      $("#lights").prop("checked", false);
+      console.log("activatePaws animation end");
+
       $(".paws").removeClass("active");
       $("body").removeClass("lightsOut");
 
-      // rerun to change css
-      $(".paws").one(pawApp.endOfAnimations, () => {
-        pawApp.changePawsCss();
-        pawApp.normalEvent();
-      });
+      pawApp.deactivatePaws();
     });
 };
 
+pawApp.deactivatePaws = () => {
+  $(".paws").one(pawApp.endOfAnimations, () => {
+    console.log("deactivatePaws animation end");
+    pawApp.changePawsCss();
+
+
+    pawApp.normalEvent();
+    // pawApp.eventSwapper();
+  });
+};
+
+pawApp.changePawsCss = () => {
+  console.log("changePawsCss");
+  $(".paws").css("transition", pawApp.cubicBezierArr[0]);
+};
+
 // Functions
+pawApp.eventSwapper = () => {
+  console.log("swap event");
+  console.log(pawApp.timesClicked);
+  switch (pawApp.timesClicked) {
+    case 1:
+      pawApp.normalEvent();
+      break;
+    case 2:
+      pawApp.normalEvent();
+      break;
+
+    case 3:
+      console.log("quickThreeEvent selected 1");
+      pawApp.quickThreeEvent();
+      break;
+
+    default:
+      pawApp.normalEvent();
+  }
+};
+
 pawApp.normalEvent = () => {
+  console.log("normalEvent run");
+  pawApp.timesClicked++;
+
   $(".lightSwitch").one("click", () => {
     pawApp.activatePaws();
     $("body").addClass("lightsOut");
   });
 };
 
+pawApp.quickThreeEvent = () => {
+  console.log("quickThreeEvent run 2");
+  pawApp.timesClicked++;
+  $(".lightSwitch").one("click", () => {
+    for (let i = 0; i < 3000; i += 1000) {
+      setTimeout(() => {
+        $(".paws")
+          .css("transition", pawApp.cubicBezierArr[0])
+          .addClass("active")
+          .one(pawApp.endOfAnimations, () => {
+            $(".paws").removeClass("active");
+            $("body").removeClass("lightsOut");
+          });
+
+        $("body").addClass("lightsOut");
+      }, i);
+    }
+  });
+};
+
 pawApp.init = () => {
-  pawApp.normalEvent();
+  pawApp.eventSwapper();
+  // pawApp.normalEvent();
+  // pawApp.quickThreeEvent();
 };
 
 $(function() {

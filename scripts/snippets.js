@@ -1,3 +1,6 @@
+// Todo:
+    // the final/ default case just randomize things
+
 // using the randomizeFunction
 // $(".paws").css("transition", pawApp.cubicBezier[pawApp.randomNumber(3)]);
 
@@ -13,8 +16,13 @@
 
 // "rotate(90deg) translate(-35vw, 120vw)",
 
+// pawApp.timesClicked++;
 
-  // pawApp.timesClicked++;
 
- // $('.wall').css('z-index', '10')
- 
+// css
+// transform: rotate(90deg) translate(-35vw, 120vw);
+
+// pawApp.randomNumber = max => {
+//     return Math.floor(Math.random() * Math.floor(max));
+//   };
+

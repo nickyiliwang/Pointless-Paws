@@ -1,14 +1,14 @@
 /* this is the paws */
 .paws {
+  width: 30%;
   z-index: 2;
   position: absolute;
-  right: 20vw;
+  right: 30vw;
   /* this is the transition for paws */
   transform: translate(0, 50vw);
-  /* Adding transition animation */
-  transition: all 1s linear;
 
-  // transition: all 2s cubic-bezier(0.36, 1.48, 1, 0.71); // Slow windup and bop
+  /* Adding transition animation */
+  transition: all 0.3s cubic-bezier(0.36, 1.48, 1, 0.71); // Slow windup and bop
 }
 
 .paws.active {
