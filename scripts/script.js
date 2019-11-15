@@ -9,13 +9,12 @@ pawApp.pawsSrc = ["./image/paws/Olives.png"];
 // cubic-bezier values for transitions variations
 pawApp.cubicBezierArr = [
   "all 0.5s linear",
-  "all 2s cubic-bezier(.36,1.48,1,.71)", // Slow windup and bop
   "all 2s cubic-bezier(.17,.67,.78,.36)",
   "all 1s cubic-bezier(0,.98,.7,.7)"
 ];
 // transform
 pawApp.transformArr = [
-  "translate(0, 50vw)",
+  "rotate(90deg) translate(-35vw, 120vw)",
   "translate(0, 50vw)",
   "translate(0, 50vw)"
 ];
@@ -27,26 +26,43 @@ pawApp.randomNumber = max => {
   return Math.floor(Math.random() * Math.floor(max));
 };
 
-pawApp.animatePaws = () => {
-  $(".paws").css("transition", pawApp.cubicBezierArr[0]);
-  $(".wall").css("z-index", "10");
+pawApp.changePawsCss = () => {
+  console.log("triggered changePawsCss");
+  $(".paws").css(
+    "transition",
+    pawApp.cubicBezierArr[0],
+    "transform",
+    pawApp.transformArr[0]
+  );
+
+  // $(".wall").css("z-index", "10"); //stop user interaction
 };
 
 pawApp.activatePaws = () => {
   $(".paws")
     .addClass("active")
-    .on(pawApp.endOfAnimations, () => {
+    .one(pawApp.endOfAnimations, () => {
+      console.log("triggered first activatePaws");
+      // $(".wall").css("z-index", "10"); //stop user interaction
       $("#lights").prop("checked", false);
       $(".paws").removeClass("active");
-      $(".wall").css("z-index", "0");
+      $("body").removeClass("lightsOut");
+
+      // rerun to change css
+      $(".paws").one(pawApp.endOfAnimations, () => {
+        pawApp.changePawsCss();
+        // $(".wall").css("z-index", "0"); // allows user interaction again
+        pawApp.normalEvent();
+      });
     });
 };
 
 // Functions
 pawApp.normalEvent = () => {
-  $(".lightSwitch").on("click", () => {
-    pawApp.animatePaws();
+  $(".lightSwitch").one("click", () => {
     pawApp.activatePaws();
+    $("body").addClass("lightsOut");
+    // $('#lights').prop('disabled', true)
   });
 };
 

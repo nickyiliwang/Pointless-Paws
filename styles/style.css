@@ -287,25 +287,23 @@ img {
   background: rgba(0, 0, 0, 0.1);
 }
 
-input:checked + .lightSwitch {
+.lightsOut .lightSwitch {
   background: #b5b5b6;
   border-color: #888;
 }
 
-input:checked + .lightSwitch .switch {
+.lightsOut .lightSwitch .switch {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#bfbfbf), color-stop(50%, #bfbfbf), color-stop(50%, #b8b9ba), to(#b8b9ba));
   background-image: linear-gradient(to bottom, #bfbfbf 0%, #bfbfbf 50%, #b8b9ba 50%, #b8b9ba 100%);
   border-color: #888;
 }
 
-input:checked + .lightSwitch .switch:after {
+.lightsOut .lightSwitch .switch:after {
   top: 0;
   background: rgba(0, 0, 0, 0.1);
 }
 
-input:checked + .lightSwitch:after {
-  -webkit-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
+.lightsOut .lightSwitch:after {
   opacity: 0;
 }
 
@@ -332,13 +330,9 @@ input:checked + .lightSwitch:after {
   width: 100%;
   top: 0;
   left: 0;
-  -webkit-transition: background 0.15s ease-in-out;
-  transition: background 0.15s ease-in-out;
 }
 
-input:checked ~ .wall {
-  -webkit-transition: background 0.15s ease-in-out;
-  transition: background 0.15s ease-in-out;
+.lightsOut .wall {
   background: rgba(0, 0, 0, 0.25);
 }
 
