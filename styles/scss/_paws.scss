@@ -1,16 +1,15 @@
 /* this is the paws */
 .paws {
   z-index: 2;
-  // positions before transition
   position: absolute;
   right: 20vw;
-  bottom: -150vw;
-  /* transition animation */
-  transform: none;
-  transition: none;
+  /* this is the transition for paws */
+  transform: translate(0, 50vw);
+  /* Adding transition animation */
+  transition: all 1s linear;
 }
 
 .paws.active {
-  /* brings up the paw */
-  bottom: -50vw;
+  /* making the transform none will revert the  */
+  transform: none;
 }

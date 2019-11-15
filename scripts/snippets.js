@@ -15,3 +15,6 @@
 
 
   // pawApp.timesClicked++;
+
+ // $('.wall').css('z-index', '10')
+ 

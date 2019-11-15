@@ -14,9 +14,13 @@ pawApp.cubicBezierArr = [
   "all 1s cubic-bezier(0,.98,.7,.7)"
 ];
 // transform
-pawApp.transformArr = ["translate(0, 50vw)", "translate(0, 50vw)"];
+pawApp.transformArr = [
+  "translate(0, 50vw)",
+  "translate(0, 50vw)",
+  "translate(0, 50vw)"
+];
 // positions
-pawApp.positionsArr = ["-70vw"];
+pawApp.positionsArr = [];
 
 // functions
 pawApp.randomNumber = max => {
@@ -25,21 +29,22 @@ pawApp.randomNumber = max => {
 
 pawApp.animatePaws = () => {
   $(".paws").css("transition", pawApp.cubicBezierArr[0]);
+  $(".wall").css("z-index", "10");
 };
 
 pawApp.activatePaws = () => {
   $(".paws")
     .addClass("active")
-    .one(pawApp.endOfAnimations, function() {
+    .on(pawApp.endOfAnimations, () => {
       $("#lights").prop("checked", false);
       $(".paws").removeClass("active");
+      $(".wall").css("z-index", "0");
     });
 };
 
 // Functions
-pawApp.normalEvent = function() {
-  $(".switch").one("click", () => {
-    $(".paws.active").css("bottom", "-50vw");
+pawApp.normalEvent = () => {
+  $(".lightSwitch").on("click", () => {
     pawApp.animatePaws();
     pawApp.activatePaws();
   });

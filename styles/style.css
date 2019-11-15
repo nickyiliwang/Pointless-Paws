@@ -326,6 +326,7 @@ input:checked + .lightSwitch:after {
 }
 
 .wall {
+  z-index: 0;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -352,17 +353,18 @@ input {
   z-index: 2;
   position: absolute;
   right: 20vw;
-  bottom: -150vw;
-  /* transition animation */
-  -webkit-transform: none;
-          transform: none;
-  -webkit-transition: none;
-  transition: none;
+  /* this is the transition for paws */
+  -webkit-transform: translate(0, 50vw);
+          transform: translate(0, 50vw);
+  /* Adding transition animation */
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
 }
 
 .paws.active {
-  /* brings up the paw */
-  bottom: -50vw;
+  /* making the transform none will revert the  */
+  -webkit-transform: none;
+          transform: none;
 }
 
 footer {
