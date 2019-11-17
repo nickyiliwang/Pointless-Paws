@@ -21,8 +21,3 @@
 
 // css
 // transform: rotate(90deg) translate(-35vw, 120vw);
-
-// pawApp.randomNumber = max => {
-//     return Math.floor(Math.random() * Math.floor(max));
-//   };
-
