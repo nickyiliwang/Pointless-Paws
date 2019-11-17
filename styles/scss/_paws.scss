@@ -2,15 +2,14 @@ header {
   height: 100vh;
 }
 
-
 .paws,
 .kitty {
   z-index: 2;
   position: absolute;
 
   /* Adding transition animation */
-  transition: all 0.3s linear; // dev
-  // transition: all 1.5s cubic-bezier(0.4, 1.5, 1, 0.7); // Slow windup and bop
+  // transition: all 0.3s linear; // dev
+  transition: all 1.5s cubic-bezier(0.4, 1.5, 1, 0.7); // Slow windup and bop
 }
 
 .paws {

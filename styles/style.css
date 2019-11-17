@@ -351,8 +351,8 @@ header {
   z-index: 2;
   position: absolute;
   /* Adding transition animation */
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
+  -webkit-transition: all 1.5s cubic-bezier(0.4, 1.5, 1, 0.7);
+  transition: all 1.5s cubic-bezier(0.4, 1.5, 1, 0.7);
 }
 
 .paws {

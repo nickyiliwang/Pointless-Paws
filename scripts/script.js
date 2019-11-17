@@ -26,7 +26,7 @@ pawApp.init = () => {
   };
 
   pawApp.normalTrans = {
-    transition: "all 0.4s linear"
+    transition: "all 0.5s linear"
   };
 
   pawApp.buttonMoveTrans = {
