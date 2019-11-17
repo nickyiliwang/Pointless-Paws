@@ -3,7 +3,7 @@
 Instructions:
 Just click the light switch and shut the light off
 
-DEMO: https://nickyiliwang.github.io/Pointless-Paws/
+DEMO: https://nickyiliwang.github.io/nickWangProjectThreePointlessPaws/
 
 
 
