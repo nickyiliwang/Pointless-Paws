@@ -1,5 +1,5 @@
 // Todo:
-    // the final/ default case just randomize things
+// the final/ default case just randomize things
 
 // using the randomizeFunction
 // $(".paws").css("transition", pawApp.cubicBezier[pawApp.randomNumber(3)]);
@@ -18,6 +18,10 @@
 
 // pawApp.timesClicked++;
 
-
 // css
 // transform: rotate(90deg) translate(-35vw, 120vw);
+
+// pawApp.quickThreeTrans = {
+//     transition: "all 0.3s linear"
+//   };
+// .css("transition", pawApp.quickThreeTrans.transition)

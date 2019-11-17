@@ -1,21 +1,25 @@
 @include mq($max-width: 1300px) {
-
 }
 @include mq($max-width: 1200px) {
-
 }
 @include mq($max-width: 1150px) {
-
 }
 @include mq($max-width: 900px) {
-
 }
 @include mq($max-width: 800px) {
-
 }
 @include mq($max-width: 700px) {
-
 }
 @include mq($max-width: 425px) {
+  .paws {
+    width: 80%;
+    right: 0;
+  }
   
+  .kitty {
+    width: 70%;
+    top: -100px;
+    right: 30vw;
+    transform: translate(0, -70vh);
+  }
 }

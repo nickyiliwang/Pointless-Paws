@@ -235,6 +235,7 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   background: #fdfdf6;
+  overflow: hidden;
 }
 
 .wrapper {
@@ -251,7 +252,7 @@ img {
 /* credit: https://codepen.io/arnoldsandoval/pen/ulkgz for light switch */
 .lightSwitch {
   display: block;
-  margin: 100px auto;
+  margin: 200px auto;
   border: 2px solid #d6d6d5;
   border-left: 1px solid #e8e9ea;
   border-top: 1px solid #e8e9ea;
@@ -341,32 +342,45 @@ input {
   position: absolute;
 }
 
-/* this is the paws */
-body {
-  overflow: hidden;
+header {
+  height: 100vh;
+}
+
+.paws,
+.kitty {
+  z-index: 2;
+  position: absolute;
+  /* Adding transition animation */
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 
 .paws {
   width: 30%;
-  z-index: 2;
-  position: absolute;
   right: 30vw;
-  /* this is the transition for paws */
-  -webkit-transform: translate(0, 50vw);
-          transform: translate(0, 50vw);
-  /* Adding transition animation */
-  -webkit-transition: all 1.5s cubic-bezier(0.4, 1.5, 1, 0.7);
-  transition: all 1.5s cubic-bezier(0.4, 1.5, 1, 0.7);
+  -webkit-transform: translate(0, 75vh);
+          transform: translate(0, 75vh);
 }
 
-.paws.active {
-  /* making the transform none will revert the  */
+.kitty {
+  width: 20%;
+  top: -50px;
+  right: 45vw;
+  -webkit-transform: translate(0, -50vh);
+          transform: translate(0, -50vh);
+}
+
+.paws.active,
+.kitty.active {
+  /* making the transform none will revert & animate em */
   -webkit-transform: none;
           transform: none;
 }
 
 footer {
-  margin-top: 50vh;
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
 }
 
 footer .flexContainer {
@@ -382,4 +396,18 @@ footer .infoContent p {
 footer .imageContainer {
   width: 30px;
   margin-right: 10px;
+}
+
+@media only screen and (max-width: 425px) {
+  .paws {
+    width: 80%;
+    right: 0;
+  }
+  .kitty {
+    width: 70%;
+    top: -100px;
+    right: 30vw;
+    -webkit-transform: translate(0, -70vh);
+            transform: translate(0, -70vh);
+  }
 }
