@@ -1,10 +1,14 @@
 // Selecting DOM Elements
 const lightSwitch = $(".lightSwitch");
 const paws = $(".paws");
+const pawsImage = $(".pawsImage");
 const kitty = $(".kitty");
 const body = $("body");
 const soundIcon = $(".sound");
+const infoIcon = $(".info");
 const clickSound = $("#click");
+const toy = $(".toy");
+const catJump = $(".catJump");
 
 // global object
 const pawApp = {};
@@ -22,11 +26,12 @@ pawApp.init = () => {
   };
 
   pawApp.randomTrans = {
-    transition: `all 1s cubic-bezier(${pawApp.randomDecimals()},${pawApp.randomDecimals()},${pawApp.randomDecimals()},${pawApp.randomDecimals()})`
+    transition: () =>
+      `all 1s cubic-bezier(${pawApp.randomDecimals()},${pawApp.randomDecimals()},${pawApp.randomDecimals()},${pawApp.randomDecimals()})`
   };
 
   pawApp.normalTrans = {
-    transition: "all 0.5s linear"
+    transition: "all 0.3s linear"
   };
 
   pawApp.buttonMoveTrans = {
@@ -38,6 +43,11 @@ pawApp.init = () => {
 pawApp.soundControl = () => {
   soundIcon.on("click", () => {
     console.log("muted");
+  });
+};
+pawApp.infoControl = () => {
+  infoIcon.on("click", () => {
+    console.log("Info");
   });
 };
 
@@ -61,14 +71,15 @@ pawApp.normalEvent = () => {
 };
 
 pawApp.randomEvent = () => {
-  console.log(pawApp.randomTrans.transition);
-  pawApp.activateItems(paws, pawApp.randomTrans.transition);
+  console.log(pawApp.randomTrans.transition());
+  pawApp.activateItems(paws, pawApp.randomTrans.transition());
   body.addClass("lightsOut");
 };
 
 pawApp.buttonMoveEvent = () => {
   console.log("buttonMoveEvent active");
   pawApp.normalEvent();
+
   setTimeout(() => {
     lightSwitch.css("transform", pawApp.buttonMoveTrans.translate);
     lightSwitch.css("transition", pawApp.buttonMoveTrans.transition);
@@ -77,7 +88,7 @@ pawApp.buttonMoveEvent = () => {
   setTimeout(() => {
     lightSwitch.css("transform", "none");
     lightSwitch.css("transition", "none");
-  }, 4000);
+  }, 2500);
 };
 
 pawApp.quickThreeEvent = () => {
@@ -99,6 +110,27 @@ pawApp.topKittyEvent = () => {
   body.addClass("lightsOut");
 };
 
+pawApp.leftToyEvent = () => {
+  console.log("leftToyEvent active");
+  body.addClass("lightsOut");
+  toy.css("transition", "all 0.8s linear");
+  
+  toy.addClass("active").one(pawApp.endOfAnimations, () => {
+    toy.css("display", "none");
+    toy.removeClass("active");
+  });
+
+  setTimeout(() => {
+    catJump.css("transition", "all 0.8s linear");
+    pawApp.activateItems(catJump, pawApp.normalTrans.transition);
+  }, 1500);
+
+  setTimeout(() => {
+    pawApp.activateItems(paw, pawApp.normalTrans.transition);
+    catJump.css("display", "none");
+  }, 2500);
+};
+
 pawApp.addEventListenerToBtn = eventName => {
   lightSwitch.one("click", () => {
     pawApp.timesClicked++;
@@ -117,36 +149,35 @@ pawApp.eventSwapper = () => {
       break;
 
     case 3:
-      console.log("quickThreeEvent run");
+      console.log("quickThreeEvent run, preloading topKittyEvent");
       pawApp.quickThreeEvent();
-      pawApp.addEventListenerToBtn(pawApp.normalEvent);
-      break;
-
-    case 4:
-      console.log("topKittyEvent run");
       pawApp.addEventListenerToBtn(pawApp.topKittyEvent);
       break;
 
-    case 5:
-      console.log("randomEvent run");
-      pawApp.addEventListenerToBtn(pawApp.randomEvent);
+    case 4:
+      console.log("leftToyEvent run");
+      pawApp.leftToyEvent();
+      pawApp.addEventListenerToBtn(pawApp.normalEvent);
       break;
 
     default:
       pawApp.addEventListenerToBtn(pawApp.normalEvent);
+      // random event with random
+      // pawApp.addEventListenerToBtn(pawApp.randomEvent);
       break;
   }
 };
 
 $(function() {
   pawApp.init();
-  pawApp.eventSwapper();
+  // pawApp.eventSwapper();
 
-  //dev
-  // lightSwitch.on("click", () => {
-  //   pawApp.topKittyEvent();
-  // });
-  //dev
+  // dev
+  lightSwitch.on("click", () => {
+    pawApp.leftToyEvent();
+  });
+  // dev
 
   pawApp.soundControl();
+  pawApp.infoControl();
 });
