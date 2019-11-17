@@ -1,4 +1,9 @@
 /* this is the paws */
+
+body {
+  overflow: hidden;
+}
+
 .paws {
   width: 30%;
   z-index: 2;
@@ -8,7 +13,7 @@
   transform: translate(0, 50vw);
 
   /* Adding transition animation */
-  transition: all 0.3s cubic-bezier(0.36, 1.48, 1, 0.71); // Slow windup and bop
+  transition: all 2s cubic-bezier(0.36, 1.48, 1, 0.71); // Slow windup and bop
 }
 
 .paws.active {

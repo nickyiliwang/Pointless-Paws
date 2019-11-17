@@ -342,6 +342,10 @@ input {
 }
 
 /* this is the paws */
+body {
+  overflow: hidden;
+}
+
 .paws {
   width: 30%;
   z-index: 2;
@@ -351,8 +355,8 @@ input {
   -webkit-transform: translate(0, 50vw);
           transform: translate(0, 50vw);
   /* Adding transition animation */
-  -webkit-transition: all 0.3s cubic-bezier(0.36, 1.48, 1, 0.71);
-  transition: all 0.3s cubic-bezier(0.36, 1.48, 1, 0.71);
+  -webkit-transition: all 2s cubic-bezier(0.36, 1.48, 1, 0.71);
+  transition: all 2s cubic-bezier(0.36, 1.48, 1, 0.71);
 }
 
 .paws.active {
