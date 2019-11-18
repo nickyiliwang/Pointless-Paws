@@ -372,7 +372,8 @@ header {
           transform: translate(0, -50vh);
 }
 
-.toy, .catJump {
+.toy,
+.catJump {
   -webkit-transform: translate(-350vh, 0);
           transform: translate(-350vh, 0);
   bottom: 0;

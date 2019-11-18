@@ -14,6 +14,7 @@ const catJump = $(".catJump");
 const pawApp = {};
 
 pawApp.init = () => {
+  pawApp.startRandom = false;
   pawApp.endOfAnimations =
     "webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend";
   pawApp.timesClicked = 0;
@@ -93,7 +94,7 @@ pawApp.buttonMoveEvent = () => {
 
 pawApp.quickThreeEvent = () => {
   console.log("quickThreeEvent active");
-  for (let i = 0; i < 3300; i += 1300) {
+  for (let i = 0; i < 3000; i += 1000) {
     setTimeout(() => {
       body.addClass("lightsOut");
       paws.addClass("active").one(pawApp.endOfAnimations, () => {
@@ -110,25 +111,35 @@ pawApp.topKittyEvent = () => {
   body.addClass("lightsOut");
 };
 
+pawApp.leftToyActivateItem = item => {
+  item.addClass("active").one(pawApp.endOfAnimations, () => {
+    item.css("display", "none");
+    item.removeClass("active");
+  });
+};
+
 pawApp.leftToyEvent = () => {
   console.log("leftToyEvent active");
   body.addClass("lightsOut");
-  toy.css("transition", "all 0.8s linear");
-  
-  toy.addClass("active").one(pawApp.endOfAnimations, () => {
-    toy.css("display", "none");
-    toy.removeClass("active");
-  });
+
+  toy.css("transition", "all 1s linear");
+  catJump.css("transition", "all 0.8s linear");
+  paws.css("transition", "all 0.5s linear");
+
+  pawApp.leftToyActivateItem(toy);
 
   setTimeout(() => {
-    catJump.css("transition", "all 0.8s linear");
-    pawApp.activateItems(catJump, pawApp.normalTrans.transition);
-  }, 1500);
+    pawApp.leftToyActivateItem(catJump);
+  }, 1000);
 
   setTimeout(() => {
-    pawApp.activateItems(paw, pawApp.normalTrans.transition);
-    catJump.css("display", "none");
-  }, 2500);
+    paws.addClass("active").one(pawApp.endOfAnimations, () => {
+      paws.removeClass("active");
+      body.removeClass("lightsOut");
+      toy.css("display", "block");
+      catJump.css("display", "block");
+    });
+  }, 2000);
 };
 
 pawApp.addEventListenerToBtn = eventName => {
@@ -156,27 +167,39 @@ pawApp.eventSwapper = () => {
 
     case 4:
       console.log("leftToyEvent run");
-      pawApp.leftToyEvent();
-      pawApp.addEventListenerToBtn(pawApp.normalEvent);
+      pawApp.addEventListenerToBtn(pawApp.leftToyEvent);
+      break;
+
+    case 5:
+      console.log("startRandom run");
+      pawApp.startRandom = true;
+      pawApp.addEventListenerToBtn(pawApp.randomEvent);
+      break;
+
+    case 6:
+      console.log("startRandom run");
+      pawApp.startRandom = true;
+      pawApp.addEventListenerToBtn(pawApp.randomEvent);
       break;
 
     default:
-      pawApp.addEventListenerToBtn(pawApp.normalEvent);
-      // random event with random
-      // pawApp.addEventListenerToBtn(pawApp.randomEvent);
+      // todo, make random event generator
+      pawApp.startRandom
+        ? pawApp.addEventListenerToBtn(pawApp.randomEvent)
+        : pawApp.addEventListenerToBtn(pawApp.normalEvent);
       break;
   }
 };
 
 $(function() {
   pawApp.init();
-  // pawApp.eventSwapper();
+  pawApp.eventSwapper();
 
-  // dev
-  lightSwitch.on("click", () => {
-    pawApp.leftToyEvent();
-  });
-  // dev
+  // // dev
+  // lightSwitch.on("click", () => {
+  //   pawApp.leftToyEvent();
+  // });
+  // // dev
 
   pawApp.soundControl();
   pawApp.infoControl();
