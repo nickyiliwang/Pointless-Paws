@@ -347,14 +347,27 @@ header {
 }
 
 .paws,
+.paw2,
+.paw3,
 .kitty,
 .toy,
 .catJump {
   z-index: 2;
   position: absolute;
   /* Adding transition animation */
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
+  -webkit-transition: all 1s cubic-bezier(0.4, 1.5, 1, 0.7);
+  transition: all 1s cubic-bezier(0.4, 1.5, 1, 0.7);
+}
+
+.paws.active,
+.paw2.active,
+.paw3.active,
+.kitty.active,
+.toy.active,
+.catJump.active {
+  /* making the transform none will revert & animate em */
+  -webkit-transform: none;
+          transform: none;
 }
 
 .paws {
@@ -362,6 +375,18 @@ header {
   right: 30vw;
   -webkit-transform: translate(0, 75vh);
           transform: translate(0, 75vh);
+}
+
+.paw2,
+.paw3 {
+  width: 30%;
+  right: 40vw;
+  -webkit-transform: translate(0, 80vh);
+          transform: translate(0, 80vh);
+}
+
+.paw3 {
+  width: 20%;
 }
 
 .kitty {
@@ -374,19 +399,10 @@ header {
 
 .toy,
 .catJump {
-  -webkit-transform: translate(-350vh, 0);
-          transform: translate(-350vh, 0);
   bottom: 0;
   right: -150vh;
-}
-
-.paws.active,
-.kitty.active,
-.toy.active,
-.catJump.active {
-  /* making the transform none will revert & animate em */
-  -webkit-transform: none;
-          transform: none;
+  -webkit-transform: translate(-350vh, 0);
+          transform: translate(-350vh, 0);
 }
 
 footer {
@@ -395,14 +411,26 @@ footer {
   bottom: 50px;
 }
 
-footer .flexContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+footer .info {
+  cursor: pointer;
+}
+
+footer .infoContent {
+  opacity: 0;
+  padding: 10px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  width: 30%;
+  border: 0.5px dotted grey;
 }
 
 footer .infoContent p {
-  display: none;
+  padding: 10px;
+}
+
+footer .infoContent.active {
+  opacity: inherit;
+  margin-bottom: 20px;
 }
 
 footer .imageContainer {

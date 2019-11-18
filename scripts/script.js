@@ -1,11 +1,13 @@
 // Selecting DOM Elements
 const lightSwitch = $(".lightSwitch");
 const paws = $(".paws");
-const pawsImage = $(".pawsImage");
+const paw2 = $(".paw2");
+const paw3 = $(".paw3");
 const kitty = $(".kitty");
 const body = $("body");
 const soundIcon = $(".sound");
 const infoIcon = $(".info");
+const infoContent = $(".infoContent");
 const clickSound = $("#click");
 const toy = $(".toy");
 const catJump = $(".catJump");
@@ -32,13 +34,14 @@ pawApp.init = () => {
   };
 
   pawApp.normalTrans = {
-    transition: "all 0.3s linear"
+    transition: "all 0.4s linear"
   };
 
   pawApp.buttonMoveTrans = {
     translate: "translate(0, 100vh)",
     transition: "all 0.5s linear"
   };
+  pawApp.pawsArr = [paws, paw2, paw3];
 };
 
 pawApp.soundControl = () => {
@@ -48,7 +51,13 @@ pawApp.soundControl = () => {
 };
 pawApp.infoControl = () => {
   infoIcon.on("click", () => {
-    console.log("Info");
+    console.log('clicked')
+    infoContent.toggleClass('active')
+
+
+
+
+
   });
 };
 
@@ -97,10 +106,12 @@ pawApp.quickThreeEvent = () => {
   for (let i = 0; i < 3000; i += 1000) {
     setTimeout(() => {
       body.addClass("lightsOut");
-      paws.addClass("active").one(pawApp.endOfAnimations, () => {
-        paws.removeClass("active");
-        body.removeClass("lightsOut");
-      });
+      pawApp.pawsArr[i / 1000]
+        .addClass("active")
+        .one(pawApp.endOfAnimations, () => {
+          pawApp.pawsArr[i / 1000].removeClass("active");
+          body.removeClass("lightsOut");
+        });
     }, i);
   }
 };
@@ -171,13 +182,13 @@ pawApp.eventSwapper = () => {
       break;
 
     case 5:
-      console.log("startRandom run");
+      console.log("fullPawsEvent run");
       pawApp.startRandom = true;
       pawApp.addEventListenerToBtn(pawApp.randomEvent);
       break;
 
     case 6:
-      console.log("startRandom run");
+      console.log("startRandomEvent run");
       pawApp.startRandom = true;
       pawApp.addEventListenerToBtn(pawApp.randomEvent);
       break;
@@ -197,7 +208,7 @@ $(function() {
 
   // // dev
   // lightSwitch.on("click", () => {
-  //   pawApp.leftToyEvent();
+  //   pawApp.quickThreeEvent();
   // });
   // // dev
 

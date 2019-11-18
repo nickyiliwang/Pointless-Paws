@@ -3,12 +3,25 @@ footer {
   left: 50px;
   bottom: 50px;
 
-  .flexContainer {
-    display: flex;
+  .info {
+    cursor: pointer;
   }
 
-  .infoContent p {
-    display: none;
+  .infoContent {
+    opacity: 0;
+    padding: 10px;
+    transition: all 0.3s linear;
+    width: 30%;
+    border: 0.5px dotted grey;
+
+    p {
+      padding: 10px;
+    }
+
+    &.active {
+      opacity: inherit;
+      margin-bottom: 20px;
+    }
   }
   .imageContainer {
     width: 30px;

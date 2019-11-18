@@ -3,21 +3,38 @@ header {
 }
 
 .paws,
+.paw2,
+.paw3,
 .kitty,
 .toy,
 .catJump {
   z-index: 2;
   position: absolute;
-
   /* Adding transition animation */
-  transition: all 0.3s linear; // dev
-  // transition: all 1s cubic-bezier(0.4, 1.5, 1, 0.7); // Slow windup and bop
+  // transition: all 0.8s linear; // dev
+  transition: all 1s cubic-bezier(0.4, 1.5, 1, 0.7); // Slow windup and bop
+
+  &.active {
+    /* making the transform none will revert & animate em */
+    transform: none;
+  }
 }
 
 .paws {
   width: 30%;
   right: 30vw;
   transform: translate(0, 75vh);
+}
+
+.paw2,
+.paw3 {
+  width: 30%;
+  right: 40vw;
+  transform: translate(0, 80vh);
+}
+
+.paw3 {
+  width: 20%;
 }
 
 .kitty {
@@ -29,15 +46,7 @@ header {
 
 .toy,
 .catJump {
-  transform: translate(-350vh, 0);
   bottom: 0;
   right: -150vh;
-}
-
-.paws.active,
-.kitty.active,
-.toy.active,
-.catJump.active {
-  /* making the transform none will revert & animate em */
-  transform: none;
+  transform: translate(-350vh, 0);
 }
