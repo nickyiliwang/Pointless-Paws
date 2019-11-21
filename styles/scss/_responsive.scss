@@ -11,11 +11,17 @@
 // @include mq($max-width: 700px) {
 // }
 @include mq($max-width: 425px) {
-  .paws {
+  .paws,
+  .paw2,
+  .paw3 {
     width: 80%;
     right: 0;
   }
-  
+
+  .paw2 {
+    right: 20vw;
+  }
+
   .kitty {
     width: 70%;
     top: -100px;
